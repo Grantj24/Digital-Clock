@@ -1,3 +1,15 @@
-.main-background{
-  color: darkgrey;
+.main-background, #p1 {
+  color: black;
+  background-color: gray;
+  font-size: 60px;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: -50px ;
+  padding-top: 100px;
+ 
 }
+
