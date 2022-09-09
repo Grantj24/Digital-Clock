@@ -1,15 +1,42 @@
-.main-background, #p1 {
-  color: black;
-  background-color: gray;
-  font-size: 60px;
-  font-style: normal;
+body {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  max-width: -50px ;
-  padding-top: 100px;
- 
 }
 
+.datetime {
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 300px;
+  padding: 15px 10px;
+  border: 3px solid;
+  border-radius: 5px;
+}
+
+.date {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time span:not(:last-child){
+  position: relative;
+  margin: 0 6px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time span:last-child{
+  font-size: 30px;
+  font-weight: 600;
+}

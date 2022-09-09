@@ -4,13 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title class="main-title">Digital Clock</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="javascript.js" type="text/Javascript">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css"> 
 </head>
-<body class="main-background">
-  <header>A Simple Digital Clock</header>
-  <p id="p1"></p>
-  <script src="javascript.js"></script>
+<body>
+  <div class="dateTime">
+    <h1>A Simple Digital Clock</h1>
+    <div class="date">
+      <span id="dayname">Day</span>,
+      <span id="month">Month</span>
+      <span id="daynum">00</span>
+      <span id="year">Year</span>
+    </div>
+    <div class="time">
+      <span id="hour">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="period">AM</span>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
