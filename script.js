@@ -14,9 +14,7 @@ function timeDisplay() {
   const AM_PM_Variable = ""; 
     if(h === 24){
       h = 0;
-    } else if(h > 12){
-      h = h - 0;
-      AM_PM_Variable = "PM";
+   
     }
     if(h < 10){
       h = "0" + h; 
