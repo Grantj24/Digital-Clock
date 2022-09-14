@@ -1,6 +1,6 @@
 # A Simple Digital CLock
 
-A simple digital clock highlighting javascript knowledge without the use of frameworks and libraries.  HTML form elements.
+A simple digital clock highlighting javascript knowledge without the use of frameworks and libraries. 
 
 Check it out [here](https://grantj24.github.io/Digital-Clock/)
 
