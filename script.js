@@ -1,55 +1,55 @@
-function timeDisplay() {
-  const mydate = new Date();
+function changeDisplay() {
+  const datetime = new Date();
+  const myClock = document.getElementById("clockDisplay");
+  const children = myClock.childNodes
+  children.forEach(child => child.remove())
+  const newDisplay = document.createElement('div')
+  const time = document.createElement('div')
+  const timeContents = document.createTextNode(formatTime(datetime))
+  time.appendChild(timeContents)
+  const date = document.createElement('div')
+  const dateContents = document.createTextNode(formatDate(datetime))
+  date.appendChild(dateContents)
+  newDisplay.append(time,date)
+  myClock.append(newDisplay)  
+}
+
+function formatTime(currentTime){
+  const h = currentTime.getHours();
+  const m = currentTime.getMinutes();
+  const s = currentTime.getSeconds();
+  return addLeadingZero(formatStandardTime(h)) + ":" + addLeadingZero(m) + ":" + addLeadingZero(s)
+}
+
+function formatStandardTime(h){
+  if(h <= 12) return h
+  if(h === 24) return 0
+  return h - 12
+}
+
+function addLeadingZero(number) {
+  if(number < 10) return "0" + number;
+  return number
+  }
+
+
+function formatDate(mydate){ 
+  const dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+  const montharray = new Array( "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
   const year = mydate.getFullYear();
   const day = mydate.getDay();
   const month = mydate.getMonth();
   const daym = mydate.getDate();
-  const dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-  const montharray = new Array( "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-
-  const currentTime = new Date(); 
-  const h = currentTime.getHours();
-  const m = currentTime.getMinutes();
-  const s = currentTime.getSeconds();
-  const AM_PM_Variable = ""; 
-    if(h === 24){
-      h = 0;
-   
-    }
-    if(h < 10){
-      h = "0" + h; 
-    }
-
-    if(m < 10){
-      m = "0" + m;
-    }
-
-    if(s < 10){
-      s = "0" + s; 
-    }
-    const myClock = document.getElementById("clockDisplay");
-    myClock.textContent = "" +h+ ":" +m+ ":" +s+ "" +AM_PM_Variable+ "\n  " +dayarray[day]+ ", " +daym+ " " +montharray[month]+ " " +year;
-    
-    myClock.innerText = "" +h+ ":" +m+ ":" +s+ "" +AM_PM_Variable+ "\n  " +dayarray[day]+ ", " +daym+ " " +montharray[month]+ " " +year;
-
-    setTimeout("timeDisplay()", 1000);
+  return dayarray[day] + ", " + daym + addSuffix(daym) + " " + montharray[month] + " " + year
 }
- 
-timeDisplay();
 
-//Previous layout, switched format for clock to be in center
+function addSuffix(number) {
+  if (number === 1 || number === 21) return "st"
+  if (number === 2 || number === 22) return "nd"
+  if (number === 3 || number === 23) return "rd"
+  return "th"
+}
 
-// const myClock = document.getElementById("clockDisplay");
-// myClock.textContent = "" +dayarray[day]+ " ," +daym+ " " +montharray[month]+ " " +year+ "\n " +h+ ":" +m+ ":" +s+ "" +AM_PM_Variable;
+setInterval(changeDisplay, 1000);
+changeDisplay();
 
-//Could not figure out how to plug in this rule for day
-
-// if(day === 1, 21) {
-//   day = st;
-// } else(day === 2, 22) {
-//   day = nd;
-// } else(day === 3, 23) {
-//   day = rd;
-// }else if(day >= 4) {
-//   day = th;
-// }
